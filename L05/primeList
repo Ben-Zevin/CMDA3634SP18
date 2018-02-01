@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<math.h>
+
+void main() {
+
+	int N;
+
+	printf("Enter an upper bound:");
+	scanf("%d", &N);
+	
+	// make storage for flags
+	int *isPrime = (int*)malloc
