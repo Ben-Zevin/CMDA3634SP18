@@ -48,7 +48,7 @@ int main (int argc, char **argv) {
   q = (p-1)/2;
   while(isProbablyPrime(q) == 0 || isProbablyPrime(p) == 0)
   {
-		  p = isProbablyPrime(randXbitInt(n));
+		  p = randXbitInt(n);
 		  q = (p-1)/2;
   }
 	printf("p = %u is probably prime and equals 2*q + 1. q= %u and is also probably prime.\n", p, q);  
