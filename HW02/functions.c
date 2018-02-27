@@ -93,7 +93,7 @@ unsigned int isProbablyPrime(unsigned int N) {
 
   //if we're testing a large number switch to Miller-Rabin primality test
   /* Q2.1: Complete this part of the isProbablyPrime function using the Miller-Rabin pseudo-code */
-  unsigned int r,d,k;
+  unsigned int r,d,k,x;
 
   for (int i = 1; i < N; i++){
 		  int p = pow(2,i);
@@ -104,15 +104,16 @@ unsigned int isProbablyPrime(unsigned int N) {
 				  i = N;
 		  }
   }
+  
   k = smallPrimeList[0];
   for (unsigned int n=0;n<NsmallPrimes;n++) {
   			
-		  int x = modExp(k, d, N);
+		  x = modExp(k, d, N);
 		  if (x == 1 || x == N-1)
 		  {
 				k = smallPrimeList[n+1];
 		  }
-		  for (int i = 1; i <= r-1; i++){
+		  for (unsigned int i = 1; i <= r-1; i++){
 				  x = modprod(x,x,N);
 				  if (x == 1)
 				  {
@@ -121,9 +122,10 @@ unsigned int isProbablyPrime(unsigned int N) {
 				  if (x == N-1)
 				  {
 						  k = smallPrimeList[n+1];
+						  i = r;
 				  }
-		  }
 		  return 0;
+		  }
   }
   return 1; //true
 }
@@ -135,7 +137,7 @@ unsigned int findGenerator(unsigned int p) {
 		q = (p-1)/2;
 		for (int i = 2; i<p; i++)
 		{
-				i = g;
+				g = i;
 				if (modExp(g,2,p) == 1 || modExp(g,q,p) == 1)
 				{
 						i = p;
