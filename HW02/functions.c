@@ -133,10 +133,13 @@ unsigned int findGenerator(unsigned int p) {
 		/* Q3.3: complete this function and use the fact that p=2*q+1 to quickly find a generator */
 		unsigned int g, q;
 		q = (p-1)/2;
-		g = rand();
-		while (modExp(g,2,p) == 1 || modExp(g,q,p) == 1)
+		for (int i = 2; i<p; i++)
 		{
-				g = rand();
+				i = g;
+				if (modExp(g,2,p) == 1 || modExp(g,q,p) == 1)
+				{
+						i = p;
+				}
 		}
 
 		return g;
