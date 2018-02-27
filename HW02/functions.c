@@ -112,6 +112,7 @@ unsigned int isProbablyPrime(unsigned int N) {
 		  if (x == 1 || x == N-1)
 		  {
 				k = smallPrimeList[n+1];
+				break;
 		  }
 		  for (unsigned int i = 1; i <= r-1; i++){
 				  x = modprod(x,x,N);
@@ -122,10 +123,10 @@ unsigned int isProbablyPrime(unsigned int N) {
 				  if (x == N-1)
 				  {
 						  k = smallPrimeList[n+1];
-						  i = r;
+						 break;
 				  }
-		  return 0;
 		  }
+		  return 0;
   }
   return 1; //true
 }
