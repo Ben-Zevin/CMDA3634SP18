@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
   //seed random number generator
   // Q2b: get the number of threads to run with from agrv and 
   // add OpenMP API code to set number of threads here
-  int Nthreads = atoi(argv[argc]);
+  int Nthreads = atoi(argv[1]);
 
   omp_set_num_threads(Nthreads);
   
