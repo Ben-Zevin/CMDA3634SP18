@@ -47,8 +47,4 @@ int main(int argc, char **argv) {
 
   double pi = 4.0*Ncircle/ (double) (Ntotal);
   printf("Our final estimate of pi is %g \n", pi);
-
-  free(drandData);
-  
-  return 0;
 }
