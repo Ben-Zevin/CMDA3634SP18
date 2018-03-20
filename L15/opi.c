@@ -34,8 +34,10 @@ int main(int argc, char **argv) {
   long long int Ntotal=0;
   long long int Ncircle=0;
   
+  double startTime = omp_get_wtime();
+
   #pragma omp parallel for reduction(+:Ncircle)
-  for (long long int n=0; n<Ntrials; n++) {
+  for( long long int n=0; n<Ntrials; n++) {
     int rank = omp_get_thread_num();
     double rand1;
     double rand2;
@@ -55,10 +57,13 @@ int main(int argc, char **argv) {
       double pi = 4.0*Ncircle/ (double) (n);
       printf("Our estimate of pi is %g \n", pi);
     }
-	  double runTime = omp_get_wtime();
-      printf("The run time was %f \n", runTime);
+//		 double runTime = omp_get_wtime();
+ //     printf("The run time was %f \n", runTime-startTime);
 
   }
+	  double runTime = omp_get_wtime();
+      printf("The run time was %f \n", runTime-startTime);
+
 
   double pi = 4.0*Ncircle/ (double) (Ntotal);
   printf("Our final estimate of pi is %g \n", pi);
