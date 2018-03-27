@@ -39,7 +39,7 @@ int main (int argc, char **argv) {
 //  }
 //  printf("\n");
   
-	n = 20;
+	n = 25;
   //declare storage for an ElGamal cryptosytem
  // unsigned int p, g, h, x;
 
@@ -104,7 +104,7 @@ int main (int argc, char **argv) {
   endTime = MPI_Wtime();
   if (rank == 0){
   printf("Final Runtime is : %f \n", endTime-startTime);
-  printf("ThroughPut is : %f \n", (endTime-startTime)*2);
+  printf("ThroughPut is : %f \n", N/(endTime-startTime));
   
   }
 
