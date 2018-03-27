@@ -76,15 +76,21 @@ int main (int argc, char **argv) {
   unsigned int chunk = N/size;
   unsigned int rem = N%size;
   
-  start = rank*chunk; 
-  end = start+chunk;
 
   if(rank<=rem && rem !=0)
   {
-		start = start+rank;  
-		end= end+1;
+		start = (rank*chunk)+rank;  
+		end = start+chunk+1;
 	
   }
+  else{
+	    start = (rank*chunk)+rem; 
+	    end = start+chunk;
+
+  }
+
+
+
 	double startTime, endTime, throughPut;
 	startTime = MPI_Wtime();
   //loop through the values from 'start' to 'end'
