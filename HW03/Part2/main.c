@@ -29,17 +29,17 @@ int main (int argc, char **argv) {
     broadcast the public key information */
 
   if (rank == 0){
-  printf("Enter a number of bits: "); fflush(stdout);
-  char status = scanf("%u",&n);
+//  printf("Enter a number of bits: "); fflush(stdout);
+//  char status = scanf("%u",&n);
 
   //make sure the input makes sense
-  if ((n<3)||(n>31)) {//Updated bounds. 2 is no good, 31 is actually ok
-    printf("Unsupported bit size.\n");
-    return 0;   
-  }
-  printf("\n");
+//  if ((n<3)||(n>31)) {//Updated bounds. 2 is no good, 31 is actually ok
+//    printf("Unsupported bit size.\n");
+//    return 0;   
+//  }
+//  printf("\n");
   
-
+	n = 20;
   //declare storage for an ElGamal cryptosytem
  // unsigned int p, g, h, x;
 
@@ -79,10 +79,11 @@ int main (int argc, char **argv) {
   start = rank*chunk; 
   end = start+chunk;
 
-  if(rank<rem && rem !=0)
+  if(rank<=rem && rem !=0)
   {
-		  end= end+1;
-		  rem--;
+		start = start+rank;  
+		end= end+1;
+	
   }
 	double startTime, endTime, throughPut;
 	startTime = MPI_Wtime();
@@ -97,6 +98,8 @@ int main (int argc, char **argv) {
   endTime = MPI_Wtime();
   if (rank == 0){
   printf("Final Runtime is : %f \n", endTime-startTime);
+  printf("ThroughPut is : %f \n", (endTime-startTime)*2);
+  
   }
 
   MPI_Finalize();
