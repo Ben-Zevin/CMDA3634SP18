@@ -1,0 +1,71 @@
+make: Nothing to be done for `all'.
+ElGamal Setup successful.
+p = 20951159. 
+g = 13186435 is a generator of Z_20951159 
+Secret key: x = 10328801 
+h = g^x = 15230250
+
+Using 1 processes to find the secret key...
+Secret key found! x = 10328801 
+Final Runtime is : 158.326922 
+ThroughPut is : 132328.461536 
+ElGamal Setup successful.
+p = 20951159. 
+g = 13186435 is a generator of Z_20951159 
+Secret key: x = 10328801 
+h = g^x = 15230250
+
+Using 2 processes to find the secret key...
+Secret key found! x = 10328801 
+Final Runtime is : 82.631504 
+ThroughPut is : 253549.275650 
+ElGamal Setup successful.
+p = 21480167. 
+g = 9936308 is a generator of Z_21480167 
+Secret key: x = 20374901 
+h = g^x = 18753561
+
+Using 4 processes to find the secret key...
+Secret key found! x = 20374901 
+Final Runtime is : 42.028131 
+ThroughPut is : 511090.202794 
+ElGamal Setup successful.
+p = 21480167. 
+g = 9936308 is a generator of Z_21480167 
+Secret key: x = 20374901 
+h = g^x = 18753561
+
+Using 8 processes to find the secret key...
+Secret key found! x = 20374901 
+Final Runtime is : 21.138745 
+ThroughPut is : 1016151.428544 
+ElGamal Setup successful.
+p = 21480167. 
+g = 9936308 is a generator of Z_21480167 
+Secret key: x = 20374901 
+h = g^x = 18753561
+
+Using 12 processes to find the secret key...
+Secret key found! x = 20374901 
+Final Runtime is : 14.167767 
+ThroughPut is : 1516129.247990 
+ElGamal Setup successful.
+p = 24868703. 
+g = 20993410 is a generator of Z_24868703 
+Secret key: x = 368845 
+h = g^x = 21932223
+
+Using 16 processes to find the secret key...
+Secret key found! x = 368845 
+Final Runtime is : 12.689906 
+ThroughPut is : 1959723.087330 
+ElGamal Setup successful.
+p = 24868703. 
+g = 20993410 is a generator of Z_24868703 
+Secret key: x = 368845 
+h = g^x = 21932223
+
+Using 20 processes to find the secret key...
+Secret key found! x = 368845 
+Final Runtime is : 10.176170 
+ThroughPut is : 2443817.441087 
