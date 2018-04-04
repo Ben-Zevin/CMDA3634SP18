@@ -81,7 +81,7 @@ __global__ void  kernelMandelbrot(int Nre, int Nim, complex_t cmin, complex_t cm
   m = tIdy + bIdy*bsizey;
 
   double dr = (cmax.r-cmin.r)/(Nre-1);
-  double di = (cmax.i-cmin.i)/(Nim-1);;
+  double di = (cmax.i-cmin.i)/(Nim-1);
 
       c.r = cmin.r + dr*m;
       c.i = cmin.i + di*n;
