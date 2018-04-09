@@ -78,7 +78,7 @@ __global__ void  kernelMandelbrot(int Nre, int Nim, complex_t cmin, complex_t cm
   complex_t c;
 
   n = tIdx + bIdx*bSizex;
-  m = tIdy + bIdy*bsizey;
+  m = tIdy + bIdy*bSizey;
 
   double dr = (cmax.r-cmin.r)/(Nre-1);
   double di = (cmax.i-cmin.i)/(Nim-1);
@@ -114,7 +114,7 @@ int main(int argc, char **argv){
   float *count = (float*) malloc(Nre*Nim*sizeof(float)); 
 //  float *count_a = cudaMalloc(&count_a, Nre*Nim*sizeof(float));
 
-  cudaMemcpy(count_a, count, Nre*Nim*sizeof(float));
+  cudaMemcpy(count_a, count, Nre*Nim*sizeof(float),cudaMemcpyHostToDevice);
 	
 
   // Parameters for a bounding box for "c" that generates an interesting image
