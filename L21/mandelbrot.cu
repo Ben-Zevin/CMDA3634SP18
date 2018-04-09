@@ -101,8 +101,8 @@ int main(int argc, char **argv){
   int Nthreads = atoi(argv[3]);
 
   // Q2b: set the number of threads per block and the number of blocks here:
-	float *count_a;
-    cudaMalloc(&count_a, Nre*Nim*sizeof(float));
+	float *count_x;
+    cudaMalloc(&count_x, Nre*Nim*sizeof(float));
 	int Bx, By, Gx, Gy;
 	Bx = sqrt(Nthreads);
 	By = sqrt(Nthreads);
@@ -112,9 +112,9 @@ int main(int argc, char **argv){
 	dim3 G(Gx,Gy,1);
   // storage for the iteration counts
   float *count = (float*) malloc(Nre*Nim*sizeof(float)); 
-//  float *count_a = cudaMalloc(&count_a, Nre*Nim*sizeof(float));
+//  float *count_x = cudaMalloc(&count_x, Nre*Nim*sizeof(float));
 
-  cudaMemcpy(count_a, count, Nre*Nim*sizeof(float),cudaMemcpyHostToDevice);
+  cudaMemcpy(count_x, count, Nre*Nim*sizeof(float),cudaMemcpyHostToDevice);
 	
 
   // Parameters for a bounding box for "c" that generates an interesting image
