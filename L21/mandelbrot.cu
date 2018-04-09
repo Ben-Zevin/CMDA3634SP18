@@ -104,17 +104,17 @@ int main(int argc, char **argv){
 	float *count_x;
     cudaMalloc(&count_x, Nre*Nim*sizeof(float));
 	int Bx, By, Gx, Gy;
-	Bx = sqrt(Nthreads);
-	By = sqrt(Nthreads);
-	Gx = (Nre+1)/Bx;
-	Gy = (Nim+1)/By;
+	Bx = Nthreads
+	By = Nthreads;
+	Gx = (Nre+Nthreads-1)/Bx;
+	Gy = (Nim+Nthreads-1)/By;
 	dim3 B(Bx,By,1);
 	dim3 G(Gx,Gy,1);
   // storage for the iteration counts
   float *count = (float*) malloc(Nre*Nim*sizeof(float)); 
-//  float *count_x = cudaMalloc(&count_x, Nre*Nim*sizeof(float));
-
-  cudaMemcpy(count_x, count, Nre*Nim*sizeof(float),cudaMemcpyHostToDevice);
+	
+  float *count_x;
+  cudaMalloc(&count_x, Nre*Nim*sizeof(float));
 	
 
   // Parameters for a bounding box for "c" that generates an interesting image
@@ -135,7 +135,9 @@ int main(int argc, char **argv){
   kernelMandelbrot <<< G, B>>>(Nre, Nim, cmin, cmax, count); 
   cudaDeviceSynchronize();  
   clock_t end = clock(); //start time in CPU cycles
-  
+ 
+  cudaMemcpy(count, count_x, Nre*Nim*sizeof(float),cudaMemcpyHostToDevice);
+	
   // print elapsed time
   printf("elapsed = %f\n", ((double)(end-start))/CLOCKS_PER_SEC);
 
