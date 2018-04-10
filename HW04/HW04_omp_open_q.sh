@@ -15,11 +15,11 @@ module load openmpi
 ##mpicc -o main main.c -lm
 make
 
-mpiexec -np 1 ./main
-mpiexec -np 2 ./main
-mpiexec -np 4 ./main
-mpiexec -np 8 ./main
-mpiexec -np 12 ./main
-mpiexec -np 16 ./main
-mpiexec -np 20 ./main
+./main 1
+./main 2
+./main 4
+./main 8
+./main 12
+./main 16
+./main 20
 
