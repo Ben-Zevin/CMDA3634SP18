@@ -1,0 +1,113 @@
+make: Nothing to be done for `all'.
+
+ElGamal Setup successful.
+p = 5584199. 
+g = 4426322 is a generator of Z_5584199 
+Secret key: x = 223218 
+h = g^x = 3754524
+
+Message = "Hello, this is the message as a string."
+string length = 39 
+Padded Message = "Hello, this is the message as a string. *üü"
+The encrypted text is:  (1230279,5264002) (4310677,5160068) (5461982,4806980) (3277352,4413180) (2200604,4721086) (3181287,4981161) (2653759,635255) (4255435,5111643) (1099691,949635) (509778,465070) (3731699,2877489) (765904,1032400) (4962953,1506386) (980346,3635550) (1315967,1573044) (3437145,2122519) (3662803,346386) (1456478,4716819) (4745345,4059474) (4820924,1931193) (1978073,1919335) (823513,71787) ]
+Decrypted Message = "Hello, this is the message as a string. *üü"
+
+Using 1 OpenMP threads to find the secret key...
+Secret key found! x = 223217 
+Searching all keys took 1.09733 seconds, throughput was 5.08892e+06 values tested per second.
+
+ElGamal Setup successful.
+p = 5584199. 
+g = 4426322 is a generator of Z_5584199 
+Secret key: x = 223218 
+h = g^x = 3754524
+
+Message = "Hello, this is the message as a string."
+string length = 39 
+Padded Message = "Hello, this is the message as a string. *üü"
+The encrypted text is:  (3169014,3031002) (4495189,4806980) (508048,4413180) (5063448,4981161) (3724730,635255) (238824,949635) (1988267,465070) (5497021,3593720) (5002726,1506386) (4925685,2738625) (3655088,2122519) (425204,2846853) (2991600,4721086) (4888097,5111643) (3114259,1137541) (752742,1057499) (3662803,346386) (1456478,4716819) (4745345,4059474) (4820924,1931193) (1978073,1919335) (823513,71787) ]
+Decrypted Message = "Hello, this is the message as a string. *üü"
+
+Using 2 OpenMP threads to find the secret key...
+Secret key found! x = 223217 
+Searching all keys took 1.09632 seconds, throughput was 5.09357e+06 values tested per second.
+
+ElGamal Setup successful.
+p = 5584199. 
+g = 4426322 is a generator of Z_5584199 
+Secret key: x = 223218 
+h = g^x = 3754524
+
+Message = "Hello, this is the message as a string."
+string length = 39 
+Padded Message = "Hello, this is the message as a string. *üü"
+The encrypted text is:  (2383013,1814452) (1933308,5188081) (2347968,1032400) (1464997,2122519) (3310178,2766298) (3006761,4360871) (553639,4413180) (5539645,4164995) (1524497,2877489) (1978567,1573044) (323908,1882272) (4907968,71787) (2018915,5284143) (1767717,3947577) (2821425,949635) (744974,1506386) (3662803,346386) (606273,2957651) (3200783,1606361) (3027080,465070) (2612717,3635550) (4541949,4556441) ]
+Decrypted Message = "Hello, this is the message as a string. *üü"
+
+Using 4 OpenMP threads to find the secret key...
+Secret key found! x = 223217 
+Searching all keys took 1.09545 seconds, throughput was 5.09764e+06 values tested per second.
+
+ElGamal Setup successful.
+p = 5584199. 
+g = 4426322 is a generator of Z_5584199 
+Secret key: x = 223218 
+h = g^x = 3754524
+
+Message = "Hello, this is the message as a string."
+string length = 39 
+Padded Message = "Hello, this is the message as a string. *üü"
+The encrypted text is:  (820811,1092874) (5077048,2122519) (4814234,71787) (1871857,683226) (3385512,1935079) (540038,4716819) (4590151,3313936) (3457512,1875591) (3938121,3635550) (5184783,3869484) (824520,1506386) (1229310,1931193) (4831327,1111285) (1197287,1830247) (4263870,4059474) (1397826,4096945) (3708003,1573044) (328169,1919335) (4864554,2217951) (1046530,1600447) (4156599,2889893) (1434558,346386) ]
+Decrypted Message = "Hello, this is the message as a string. *üü"
+
+Using 8 OpenMP threads to find the secret key...
+Secret key found! x = 223217 
+Searching all keys took 1.0948 seconds, throughput was 5.10065e+06 values tested per second.
+
+ElGamal Setup successful.
+p = 5584199. 
+g = 4426322 is a generator of Z_5584199 
+Secret key: x = 223218 
+h = g^x = 3754524
+
+Message = "Hello, this is the message as a string."
+string length = 39 
+Padded Message = "Hello, this is the message as a string. *üü"
+The encrypted text is:  (951047,4714313) (3807520,1174505) (4814501,312616) (1950481,2808635) (2207397,448067) (2387805,2222142) (4507326,3614125) (4347524,3014148) (4851485,2661592) (1656932,87909) (1299889,4266344) (3524087,1919335) (4622623,989330) (1045682,2309075) (1937240,5560264) (5348227,5387304) (4588793,5449430) (4469645,152343) (4835951,1176216) (5282904,71787) (4139301,3309778) (2258225,1263477) ]
+Decrypted Message = "Hello, this is the message as a string. *üü"
+
+Using 12 OpenMP threads to find the secret key...
+Secret key found! x = 223217 
+Searching all keys took 1.09597 seconds, throughput was 5.09522e+06 values tested per second.
+
+ElGamal Setup successful.
+p = 5584199. 
+g = 4426322 is a generator of Z_5584199 
+Secret key: x = 223218 
+h = g^x = 3754524
+
+Message = "Hello, this is the message as a string."
+string length = 39 
+Padded Message = "Hello, this is the message as a string. *üü"
+The encrypted text is:  (4986388,4822648) (1943405,343399) (1880352,784247) (3489457,1919335) (191315,634340) (4720500,71787) (487429,2050852) (1085879,3285628) (294686,598741) (4619742,2340933) (3724197,2990869) (5385656,4421330) (183556,3954808) (4500674,3642808) (5334326,4601933) (3615745,1266363) (78176,4541117) (4775372,3219816) (730723,3379612) (5111538,2332445) (1418666,431885) (5466940,2026706) ]
+Decrypted Message = "Hello, this is the message as a string. *üü"
+
+Using 16 OpenMP threads to find the secret key...
+Secret key found! x = 223217 
+Searching all keys took 1.09584 seconds, throughput was 5.0958e+06 values tested per second.
+
+ElGamal Setup successful.
+p = 5584199. 
+g = 4426322 is a generator of Z_5584199 
+Secret key: x = 223218 
+h = g^x = 3754524
+
+Message = "Hello, this is the message as a string."
+string length = 39 
+Padded Message = "Hello, this is the message as a string. *üü"
+The encrypted text is:  (3849276,5006096) (2716450,1919335) (4726579,3796267) (4720500,71787) (5168462,269775) (2195891,2080194) (3091413,4615255) (5192917,3054069) (5365391,2910309) (1210302,529654) (2322891,5377097) (719324,4320584) (2035362,2859913) (3952700,19774) (4130682,1451067) (5401169,4619732) (2373441,4199152) (794150,4357798) (3940590,2527009) (700294,668284) (3436626,1087281) (4514999,2859125) ]
+Decrypted Message = "Hello, this is the message as a string. *üü"
+
+Using 20 OpenMP threads to find the secret key...
+Secret key found! x = 223217 
+Searching all keys took 1.09478 seconds, throughput was 5.10074e+06 values tested per second.
