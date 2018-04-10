@@ -101,10 +101,8 @@ int main(int argc, char **argv){
   int Nthreads = atoi(argv[3]);
 
   // Q2b: set the number of threads per block and the number of blocks here:
-	float *count_x;
-    cudaMalloc(&count_x, Nre*Nim*sizeof(float));
 	int Bx, By, Gx, Gy;
-	Bx = Nthreads
+	Bx = Nthreads;
 	By = Nthreads;
 	Gx = (Nre+Nthreads-1)/Bx;
 	Gy = (Nim+Nthreads-1)/By;

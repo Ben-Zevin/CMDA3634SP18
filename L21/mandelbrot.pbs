@@ -13,11 +13,29 @@ module load gcc cuda
 
 make
 
-for ((Nthreads=1;Nthreads<=64;Nthreads+=4))
-do 
-    echo Nthreads=$Nthreads
-    ./mandelbrot 4096 4096 $Nthreads;
-done;
+##for ((Nthreads=1;Nthreads<=64;Nthreads+=4))
+##do 
+ ##   echo Nthreads=$Nthreads
+##    ./mandelbrot 4096 4096 $Nthreads;
+##done;
+   ./mandelbrot 4096 4096 1;
+   ./mandelbrot 4096 4096 4;
+   ./mandelbrot 4096 4096 8;
+   ./mandelbrot 4096 4096 12;
+   ./mandelbrot 4096 4096 16;
+   ./mandelbrot 4096 4096 20;
+   ./mandelbrot 4096 4096 24;
+   ./mandelbrot 4096 4096 28;
+   ./mandelbrot 4096 4096 32;
+   ./mandelbrot 4096 4096 36;
+   ./mandelbrot 4096 4096 40;
+   ./mandelbrot 4096 4096 44;
+   ./mandelbrot 4096 4096 48;
+   ./mandelbrot 4096 4096 52;
+   ./mandelbrot 4096 4096 56;
+   ./mandelbrot 4096 4096 60;
+   ./mandelbrot 4096 4096 64;
+  
 
 
 
