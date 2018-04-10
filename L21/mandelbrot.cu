@@ -83,10 +83,10 @@ __global__ void  kernelMandelbrot(int Nre, int Nim, complex_t cmin, complex_t cm
   double dr = (cmax.r-cmin.r)/(Nre-1);
   double di = (cmax.i-cmin.i)/(Nim-1);
 
-      c.r = cmin.r + dr*m;
-      c.i = cmin.i + di*n;
+      c.r = cmin.r + dr*n;
+      c.i = cmin.i + di*m;
       
-      count[m+n*Nre] = testpoint(c);
+      count[n+m*Nre] = testpoint(c);
 
 }
 
@@ -101,13 +101,7 @@ int main(int argc, char **argv){
   int Nthreads = atoi(argv[3]);
 
   // Q2b: set the number of threads per block and the number of blocks here:
-	int Bx, By, Gx, Gy;
-	Bx = Nthreads;
-	By = Nthreads;
-	Gx = (Nre+Nthreads-1)/Bx;
-	Gy = (Nim+Nthreads-1)/By;
-	dim3 B(Bx,By,1);
-	dim3 G(Gx,Gy,1);
+
   // storage for the iteration counts
   float *count = (float*) malloc(Nre*Nim*sizeof(float)); 
 	
@@ -127,10 +121,20 @@ int main(int argc, char **argv){
   cmin.i = centIm - 0.5*diam;
   cmax.i = centIm + 0.5*diam;
 
+  // make dinmensions of threads blocks and grid
+  int Bx, By, Gx, Gy;
+  Bx = Nthreads;
+  By = Nthreads;
+  Gx = (Nre+Nthreads-1)/Bx;
+  Gy = (Nim+Nthreads-1)/By;
+  dim3 B(Bx,By,1);
+  dim3 G(Gx,Gy,1);
+  
+
   clock_t start = clock(); //start time in CPU cycles
 
   // compute mandelbrot set
-  kernelMandelbrot <<< G, B>>>(Nre, Nim, cmin, cmax, count); 
+  kernelMandelbrot <<< G, B>>>(Nre, Nim, cmin, cmax, count_x); 
   cudaDeviceSynchronize();  
   clock_t end = clock(); //start time in CPU cycles
  
