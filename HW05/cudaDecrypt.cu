@@ -7,14 +7,30 @@
 #include "cuda.h"
 #include "functions.c"
 
-__device__ int findKey(unsigned int test, unsigned int p, unsigned int g, unsigned int h)
-{
-	int z = 0;
-	if (modExp(g, test, p)==h)
-	{
-			z = 1;
-	}
-	return z;
+//compute a*b mod p safely
+__device__ unsigned int d_modprod(unsigned int a, unsigned int b, unsigned int p) {
+  unsigned int za = a;
+  unsigned int ab = 0;
+
+  while (b > 0) {
+    if (b%2 == 1) ab = (ab +  za) % p;
+    za = (2 * za) % p;
+    b /= 2;
+  }
+  return ab;
+}
+
+//compute a^b mod p safely
+__device__ unsigned int d_modExp(unsigned int a, unsigned int b, unsigned int p) {
+  unsigned int z = a;
+  unsigned int aExpb = 1;
+
+  while (b > 0) {
+    if (b%2 == 1) aExpb = d_modprod(aExpb, z, p);
+    z = d_modprod(z, z, p);
+    b /= 2;
+  }
+  return aExpb;
 }
 
 __global__ void kernelFindKeyPoint(unsigned int *d, unsigned int p, unsigned int g, unsigned int h)
@@ -25,7 +41,7 @@ __global__ void kernelFindKeyPoint(unsigned int *d, unsigned int p, unsigned int
 
 	int id = threadId +blockId*Nblock;
 
-	if(findKey(id, p, g, h) == 1)
+	if(d_modExp(g, id, p)==h)
 	{
 			d[0] = id;
 	}
@@ -90,7 +106,7 @@ int main (int argc, char **argv) {
 	cudaMalloc(&d_key,1*sizeof(unsigned int));
 
 	dim3 B(Nthreads, 1, 1);
-	dim3 G((P+Nthreads-1)/Nthreads,1,1);
+	dim3 G((p+Nthreads-1)/Nthreads,1,1);
 
 	kernelFindKeyPoint <<<G ,B>>>(d_key, p, g, h);
 
@@ -121,11 +137,7 @@ int main (int argc, char **argv) {
     double work = (double) p;
     double throughput = work/totalTime;
 
-//    printf("Searching all keys took %g seconds, throughput was %g values tested per second.\n", totalTime, throughput);
-  }
-
-
-  /* Q4 Make the search for the secret key parallel on the GPU using CUDA. */
+    printf("Searching all keys took %g seconds, throughput was %g values tested per second.\n", totalTime, throughput);
 
   return 0;
 }
