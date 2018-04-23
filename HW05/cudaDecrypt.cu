@@ -7,6 +7,30 @@
 #include "cuda.h"
 #include "functions.c"
 
+__device__ int findKey(unsigned int test, unsigned int p, unsigned int g, unsigned int h)
+{
+	int z = 0;
+	if (modExp(g, test, p)==h)
+	{
+			z = 1;
+	}
+	return z;
+}
+
+__global__ void kernelFindKeyPoint(unsigned int *d, unsigned int p, unsigned int g, unsigned int h)
+{
+	int threadId = threadIdx.x;
+	int blockId = blockIdx.x;
+	int Nblock = blockDim.x;
+
+	int id = threadId +blockId*Nblock;
+
+	if(findKey(id, p, g, h) == 1)
+	{
+			d[0] = id;
+	}
+}
+
 
 int main (int argc, char **argv) {
 
@@ -15,6 +39,7 @@ int main (int argc, char **argv) {
   //declare storage for an ElGamal cryptosytem
   unsigned int n, p, g, h, x;
   unsigned int Nints;
+  int Nthreads = atoi(argv[1]);
 
   //get the secret key from the user
   printf("Enter the secret key (0 if unknown): "); fflush(stdout);
@@ -50,17 +75,31 @@ int main (int argc, char **argv) {
 
 
   // find the secret key
-  if (x==0 || modExp(g,x,p)!=h) {
-    printf("Finding the secret key...\n");
+ // if (x==0 || modExp(g,x,p)!=h) {
+ //   printf("Finding the secret key...\n");
     double startTime = clock();
-    for (unsigned int i=0; i<p-1; i++) {
-      if (modExp(g,i+1,p)==h) {
-        printf("Secret key found! x = %u \n", i+1);
-        x=i+1;
-      } 
-    }
+ //   for (unsigned int i=0; i<p-1; i++) {
+ //     if (modExp(g,i+1,p)==h) {
+ //       printf("Secret key found! x = %u \n", i+1);
+ //       x=i+1;
+ //     } 
+ //   }
+	unsigned int *h_key = (unsigned int*) malloc(1*sizeof(unsigned int));
+
+    unsigned int *d_key;
+	cudaMalloc(&d_key,1*sizeof(unsigned int));
+
+	dim3 B(Nthreads, 1, 1);
+	dim3 G((P+Nthreads-1)/Nthreads,1,1);
+
+	kernelFindKeyPoint <<<G ,B>>>(d_key, p, g, h);
+
+	cudaDeviceSynchronize();
 
     double endTime = clock();
+
+	cudaMemcpy(h_key,d_key,1*sizeof(unsigned int),cudaMemcpyDeviceToHost);
+	x = h_key[0];
 
 	ElGamalDecrypt(Zmessage,a,Nints,p,x);
 	
