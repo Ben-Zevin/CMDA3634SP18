@@ -139,5 +139,11 @@ int main (int argc, char **argv) {
 
     printf("Searching all keys took %g seconds, throughput was %g values tested per second.\n", totalTime, throughput);
 
+	cudaFree(d_key);
+
+	free(h_key);
+	free(Zmessage);
+	free(a);
+	free(newString);
   return 0;
 }
