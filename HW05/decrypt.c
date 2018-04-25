@@ -22,14 +22,14 @@ int main (int argc, char **argv) {
   /* Q3 Complete this function. Read in the public key data from public_key.txt
     and the cyphertexts from messages.txt. */
   FILE *key, *message;
- // key = fopen("public_key.txt", "r");
-  key = fopen("bonus_public_key.txt", "r");
+  key = fopen("public_key.txt", "r");
+//  key = fopen("bonus_public_key.txt", "r");
   fscanf(key, "%u" "%u" "%u" "%u", &n, &p, &g, &h);
   fclose(key);
  
 
-//  message = fopen("message.txt", "r");
-  message = fopen("bonus_message.txt", "r");
+  message = fopen("message.txt", "r");
+//  message = fopen("bonus_message.txt", "r");
   fscanf(message, "%d", &Nints);
   unsigned int *Zmessage = 
       (unsigned int *) malloc(Nints*sizeof(unsigned int)); 
