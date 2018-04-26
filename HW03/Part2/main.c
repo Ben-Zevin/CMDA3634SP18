@@ -32,7 +32,7 @@ int main (int argc, char **argv) {
   printf("Enter a number of bits: "); fflush(stdout);
   char status = scanf("%u",&n);
 
-  make sure the input makes sense
+ // make sure the input makes sense
   if ((n<3)||(n>31)) {//Updated bounds. 2 is no good, 31 is actually ok
     printf("Unsupported bit size.\n");
     return 0;   
